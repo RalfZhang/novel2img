@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Local configuration and data
+.env
+outputs/
+models/*
+!models/.gitkeep
+*.safetensors
+*.ckpt
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+.claude/settings.local.json

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>novel2img</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234a6bff'/%3E%3Cpath d='M7 23l6-7 4 4 3-3 5 6z' fill='white'/%3E%3Ccircle cx='21' cy='11' r='2.5' fill='white'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>novel2img</h1>
+      <span class="model-info" id="modelInfo"></span>
+    </div>
+    <div class="topbar-right">
+      <button id="langBtn" class="btn-ghost lang-btn" type="button" data-i18n="lang.switch">中文</button>
+      <div class="status" id="status" data-i18n="status.ready">Ready</div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="gallery-pane">
+      <div id="gallery" class="gallery"></div>
+      <div id="empty" class="empty">
+        <p data-i18n="empty.title">Generated scenes will appear here.</p>
+        <p class="hint" data-i18n="empty.hint">Paste a chapter on the right, then click “Generate chapter”.</p>
+      </div>
+    </section>
+
+    <aside class="controls-pane">
+      <label class="field">
+        <span data-i18n="field.style">Style / adjustments (optional)</span>
+        <textarea id="style" rows="3" data-i18n-placeholder="field.stylePlaceholder"></textarea>
+      </label>
+
+      <label class="field">
+        <span data-i18n="field.novel">Novel text: one chapter or a whole book</span>
+        <textarea id="novel" rows="18" data-i18n-placeholder="field.novelPlaceholder"></textarea>
+      </label>
+
+      <div class="chapter-bar">
+        <button id="detectBtn" class="btn-secondary" type="button" data-i18n="btn.detect">Detect chapters</button>
+        <select id="chapterSelect" disabled></select>
+      </div>
+
+      <div class="row">
+        <label class="inline">
+          <span data-i18n="field.maxScenes">Max scenes per chapter</span>
+          <input id="maxScenes" type="number" min="1" max="20" value="8" />
+        </label>
+        <label class="inline">
+          <span data-i18n="field.seed">Seed (optional)</span>
+          <input id="seed" type="number" min="0" data-i18n-placeholder="field.seedPlaceholder" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="generateBtn" class="btn-primary" type="button" data-i18n="btn.generate">Generate chapter</button>
+        <button id="nextBtn" class="btn-secondary" type="button" disabled data-i18n="btn.next">Next chapter →</button>
+        <button id="stopBtn" class="btn-ghost" type="button" disabled data-i18n="btn.stop">Stop</button>
+      </div>
+
+      <div class="log" id="log" aria-live="polite"></div>
+    </aside>
+  </main>
+</body>
+</html>
